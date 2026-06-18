@@ -9,16 +9,17 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 
 public class Hooks {
     public static WebDriver driver;
 
     @Before
     public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
+        EdgeOptions options = new EdgeOptions();
         options.addArguments("--start-maximized");
-        driver = new ChromeDriver(options);
+        driver = new EdgeDriver(options);
     }
 
     @After
