@@ -9,6 +9,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import utils.AuthHelper;
 
 public class Hooks {
     public static WebDriver driver;
@@ -20,6 +21,10 @@ public class Hooks {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
+
+        driver.get("https://assalam-fe.vercel.app/");
+        AuthHelper.injectToken(driver);
+        driver.navigate().refresh();
     }
 
     @After
